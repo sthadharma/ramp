@@ -8,6 +8,7 @@ export const TransactionPane: TransactionPaneComponent = ({
   setTransactionApproval: consumerSetTransactionApproval,
 }) => {
   const [approved, setApproved] = useState(transaction.approved)
+    // const { clearCache } = useCustomFetch()
 
   return (
     <div className="RampPane">
@@ -30,6 +31,9 @@ export const TransactionPane: TransactionPaneComponent = ({
                     newValue,
                 })
             }
+            // await clearCache() ## another approach for bug 7 by clearing cache on each input checkbox click cons is cache
+            // has to be clear on each checkbox click so instead fetching without cache may be better alternative
+            // but depending upon the conditions either of solution can be preferred
 
           setApproved(newValue)
         }}
